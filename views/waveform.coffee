@@ -33,14 +33,10 @@ window.Waveform = class Waveform
   update: (options) ->
     if options.interpolate?
       @interpolate = options.interpolate
-    if options.width?
-      @width = options.width
-    if options.height?
-      @height = options.height
     if options.width? or options.height?
-      width = options.width or @width
-      height = options.height or @height
-      @resizeCanvas(width, height)
+      @width = options.width or @width
+      @height = options.height or @height
+      @resizeCanvas(@width, @height)
     if @interpolate == false
       @setDataCropped(options.data)
     else
